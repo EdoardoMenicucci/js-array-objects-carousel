@@ -9,6 +9,8 @@ let immaginiArray = [];
 
 let miniatureArray = [];
 
+let imgAttiva;
+
 //array di oggetti con img e desc
 
 let imgs = [
@@ -34,27 +36,55 @@ imgs.forEach(function (imgnow, index, array) {
     nuovoImg = document.createElement(`div`);
     nuovoImg.className = 'hidden';
     nuovoImg.id = `x${index}`
-    nuovoImg.innerHTML = `<img src="${imgnow.img}" alt="">`
+    nuovoImg.innerHTML = `<div class="absolute">${imgnow.desc}</div><img src="${imgnow.img}" alt="">`
     sezioneImmagini.append(nuovoImg)
     immaginiArray.push(nuovoImg)
 
 
     // AGGIUNGO CLICK SU MINIATURA PER CAMBIO IMG
     nuovoMin.addEventListener('click', function miniaturaFunction() {
-        immaginiArray.forEach(function (now) {
+        immaginiArray.forEach(function (now, x) {
             now.className = 'hidden'
         })
-        miniatureArray.forEach(function (now) {
+        miniatureArray.forEach(function (now, x) {
             now.className = 'dark little'
+
         })
 
         if (this.id == imgs[index].numero) {
-            document.getElementById(`x${this.id}`).className = "";
+            document.getElementById(`x${this.id}`).className = "relative";
             document.getElementById(this.id).className = 'little'
             console.log(this.id, imgs[index].numero)
+            imgAttiva = this.id
         }
     });
 })
+
+// document.getElementById(`x${imgAttiva}`).className = "relative";
+// document.getElementById(imgAttiva).className = 'little';
+
+let button = document.getElementById('btn');
+
+button.addEventListener('click', function () {
+    setInterval(function () {
+        if (imgAttiva < 4) {
+            imgAttiva += 1
+        } else {
+            imgAttiva = 0
+        }
+        immaginiArray.forEach(function (now, x) {
+            now.className = 'hidden'
+
+        })
+        miniatureArray.forEach(function (now, x) {
+            now.className = 'dark little'
+        })
+        document.getElementById(`x${imgAttiva}`).className = "relative";
+        document.getElementById(imgAttiva).className = 'little';
+    }, 2000)
+})
+// CAMBIO IMMAGINE DOPO 15S
+
 
 // FUNZIONE AL CLICK SULLA MINIATURA
 // function miniaturaFunction() {

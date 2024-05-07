@@ -12,10 +12,12 @@
 /* Reset Button */
 
 button {
-    background-color: black;
-    color: white;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     border: none;
     border-radius: 15px;
+    padding: 1rem;
+    width: 100%;
 }
 
 /* Common */
@@ -102,6 +104,16 @@ img {
 
 .dark {
     opacity: 0.3;
+}
+
+.absolute {
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+}
+
+.relative {
+    position: relative;
 }
 
 /* Main */
