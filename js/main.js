@@ -11,6 +11,10 @@ let miniatureArray = [];
 
 let imgAttiva;
 
+// CREO UNA VAR PER RIFERIRMI AL SET INTERVARL E STOPPARLO AL CLICK SU UNA CARD
+let mioIntervallo;
+
+
 //array di oggetti con img e desc
 
 let imgs = [
@@ -43,6 +47,7 @@ imgs.forEach(function (imgnow, index, array) {
 
     // AGGIUNGO CLICK SU MINIATURA PER CAMBIO IMG
     nuovoMin.addEventListener('click', function miniaturaFunction() {
+        clearInterval(mioIntervallo);
         immaginiArray.forEach(function (now, x) {
             now.className = 'hidden'
         })
@@ -54,8 +59,8 @@ imgs.forEach(function (imgnow, index, array) {
         if (this.id == imgs[index].numero) {
             document.getElementById(`x${this.id}`).className = "relative";
             document.getElementById(this.id).className = 'little'
-            console.log(this.id, imgs[index].numero)
-            imgAttiva = this.id
+            console.log(parseInt(this.id), imgs[index].numero)
+            imgAttiva = parseInt(this.id)
         }
     });
 })
@@ -65,8 +70,10 @@ imgs.forEach(function (imgnow, index, array) {
 
 let button = document.getElementById('btn');
 
+// CAMBIO IMMAGINE DOPO 15S
 button.addEventListener('click', function () {
-    setInterval(function () {
+
+    mioIntervallo = setInterval(function () {
         if (imgAttiva < 4) {
             imgAttiva += 1
         } else {
@@ -83,7 +90,7 @@ button.addEventListener('click', function () {
         document.getElementById(imgAttiva).className = 'little';
     }, 2000)
 })
-// CAMBIO IMMAGINE DOPO 15S
+
 
 
 // FUNZIONE AL CLICK SULLA MINIATURA
