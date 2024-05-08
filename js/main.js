@@ -65,9 +65,6 @@ imgs.forEach(function (imgnow, index, array) {
     });
 })
 
-// document.getElementById(`x${imgAttiva}`).className = "relative";
-// document.getElementById(imgAttiva).className = 'little';
-
 let button = document.getElementById('btn');
 
 // CAMBIO IMMAGINE DOPO 15S
@@ -90,40 +87,3 @@ button.addEventListener('click', function () {
         document.getElementById(imgAttiva).className = 'little';
     }, 2000)
 })
-
-
-
-// FUNZIONE AL CLICK SULLA MINIATURA
-// function miniaturaFunction() {
-//     for (let i = 0; i < imgs.length; i++) {
-
-//         if (this.id == imgs[i].numero) {
-//             nuovoImg[index].className = 'x';
-//         }
-//     }
-// }
-
-
-// if (element.index == this.id) {
-//     document.getElementById(index).className = ""
-// } else {
-//     document.getElementById(index).className - '';
-// }
-
-
-
-
-
-
-
-
-
-
-//     // AGGIUNGO ALLA MINIATURA TUTTE LE IMG CLICCABILI
-//     let aggiuntaMiniature = `<div class="little">../img/${imgnow}</div>`;
-//     aggiuntaMiniature.addEventListener(`click`, function () {
-//         // FUNZIONE PER AGGIUNGERE IL CAMBIO IMG
-
-//     })
-//     sezioneMiniature.innerHTML += `<div class="little">../img/${imgnow}</div>`;
-// })
